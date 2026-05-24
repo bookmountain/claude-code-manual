@@ -382,15 +382,15 @@ claude -r ses_abc123         # 恢復指定會話
 | `Ctrl + D`               | 退出 Claude Code       | EOF 訊號                                                     |
 | `Ctrl + L`               | 清除終端螢幕           | 對話歷史不受影響                                             |
 | `Ctrl + O`               | 切換詳細輸出           | 顯示/隱藏工具呼叫細節                                        |
-| `Ctrl + R`               | 反向搜尋歷史命令       | 詳見 [7.2](https://www.codefather.cn/post/2034534765402554370#72-歷史搜尋ctrlr) |
-| `Esc + Esc`              | 開啟 Rewind 選單       | 回退程式碼/對話，詳見 [6.4](https://www.codefather.cn/post/2034534765402554370#64-checkpoint-與-rewind回退功能) |
+| `Ctrl + R`               | 反向搜尋歷史命令       | 詳見 7.2 |
+| `Esc + Esc`              | 開啟 Rewind 選單       | 回退程式碼/對話，詳見 6.4 |
 | `Tab`                    | 切換 Extended Thinking | 開/關擴充套件思考模式                                            |
 | `Shift + Tab`            | 切換許可權模式           | 自動/計劃/普通                                               |
 | `↑` / `↓`                | 瀏覽歷史命令           | 快速複用之前的輸入                                           |
 | `Option + P` / `Alt + P` | 切換 AI 模型           | macOS 用 Option，Windows/Linux 用 Alt                        |
 | `Ctrl + V` / `Alt + V`   | 貼上圖片               | macOS/Linux 用 `Ctrl+V`，Windows 用 `Alt+V`                  |
 
-> 多行輸入快捷鍵見 [4.2 多行輸入](https://www.codefather.cn/post/2034534765402554370#42-多行輸入)。
+> 多行輸入快捷鍵見 4.2 多行輸入。
 
 ### 7.2 歷史搜尋（Ctrl+R）
 

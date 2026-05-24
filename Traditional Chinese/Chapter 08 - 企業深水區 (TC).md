@@ -385,7 +385,7 @@ description: 團隊編碼標準和最佳實踐
 
 ------
 
-## 5. [CI/CD](https://www.codefather.cn/course/1793910103252721665) 深度整合
+## 5. CI/CD 深度整合
 
 ### 5.1 GitHub Actions 完整配置
 
