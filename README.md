@@ -27,14 +27,3 @@ Both language folders reference the same `images/` directory at the repo root (v
 | 7   | Team collaboration, CI/CD, security — **GitHub edition** | [EN](English/Chapter%2007%20-%20Team%20Collaboration%2C%20CI-CD%2C%20Security%20(GitHub).md) | [TC](Traditional%20Chinese/Chapter%2007%20-%20團隊協作%20CI-CD%20安全%20(TC).md) |
 | 7b  | Team collaboration, CI/CD, security — **GitLab companion** | [EN](English/Chapter%2007b%20-%20Team%20Collaboration%2C%20CI-CD%2C%20Security%20(GitLab).md) | [TC](Traditional%20Chinese/Chapter%2007b%20-%20團隊協作%20CI-CD%20安全%20GitLab%20篇%20(TC).md) |
 | 8   | Enterprise deep dive — secrets, compliance, audit    | [EN](English/Chapter%2008%20-%20Enterprise%20Deep%20Dive.md)         | [TC](Traditional%20Chinese/Chapter%2008%20-%20企業深水區%20(TC).md) |
-
-## Notes
-
-- Chapter 7b is a GitLab-CI companion to Chapter 7. The team standards, security, and performance sections in Chapter 7 are platform-agnostic — 7b only differs in the pipeline tooling.
-- China-region-specific sections (relay providers, the China IP block workaround, region-specific tooling) have been stripped from both language tracks.
-- Image references use `../images/` so files render from either language folder; if you preview README.md at the repo root, paths use `images/` directly.
-
-## Workflow
-
-1. Open the folder for your preferred language.
-2. Each chapter file is self-contained and renders with all screenshots inline.
