@@ -22,7 +22,7 @@ From team standards to CI/CD integration, security and compliance to cost contro
 
 ### Chapter at a Glance
 
-![Chapter at a glance](../images/image-20260524122632653.png)
+![Chapter at a glance](../images/ch07-architecture.en.svg)
 
 ---
 
@@ -267,7 +267,7 @@ How to use:
 
 **CI/CD flow overview:**
 
-![CI/CD flow overview](../images/image-20260524122733811.png)
+![CI/CD flow overview](../images/ch07-cicd-flow.en.svg)
 
 ### 3.1 Basic GitHub Actions Setup
 

@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 700" width="1100" height="700">
+<title>第 7 章 – CI/CD 流程</title>
+
+<style>
+  .box { fill: #efeaf8; stroke: #6b5fa5; stroke-width: 1.6; rx: 8; ry: 8; }
+  .box-key { fill: #ffe9c2; stroke: #b87f1c; stroke-width: 1.6; rx: 8; ry: 8; }
+  .box-alert { fill: #fad5d5; stroke: #b53939; stroke-width: 1.6; rx: 8; ry: 8; }
+  .box-good { fill: #d3eee0; stroke: #2f8260; stroke-width: 1.6; rx: 8; ry: 8; }
+  .box-start { fill: #d6e4fa; stroke: #2d5dad; stroke-width: 1.8; rx: 8; ry: 8; }
+  .lbl { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
+         font-size: 13px; fill: #1a1a1a; text-anchor: middle; }
+  .lbl-bold { font-weight: 600; }
+  .lbl-small { font-size: 11px; fill: #555; }
+  .edge { stroke: #444; stroke-width: 1.4; fill: none; }
+  .edge-label { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
+                font-size: 11px; fill: #444; text-anchor: middle; }
+</style>
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#444"/>
+  </marker>
+</defs>
+
+<rect width="1100" height="700" fill="white"/>
+<rect x="30" y="30" width="120" height="36" class="box-start"/>
+<text x="90.0" y="52.0" class="lbl lbl-bold">開發者</text>
+<rect x="160" y="30" width="120" height="36" class="box-start"/>
+<text x="220.0" y="52.0" class="lbl lbl-bold">Git 倉庫</text>
+<rect x="290" y="30" width="120" height="36" class="box-start"/>
+<text x="350.0" y="52.0" class="lbl lbl-bold">GitHub Actions</text>
+<rect x="420" y="30" width="120" height="36" class="box-start"/>
+<text x="480.0" y="52.0" class="lbl lbl-bold">程式碼檢查</text>
+<rect x="550" y="30" width="120" height="36" class="box-start"/>
+<text x="610.0" y="52.0" class="lbl lbl-bold">自動化測試</text>
+<rect x="680" y="30" width="120" height="36" class="box-start"/>
+<text x="740.0" y="52.0" class="lbl lbl-bold">建置系統</text>
+<rect x="810" y="30" width="120" height="36" class="box-start"/>
+<text x="870.0" y="52.0" class="lbl lbl-bold">Claude 審查</text>
+<rect x="940" y="30" width="120" height="36" class="box-start"/>
+<text x="1000.0" y="52.0" class="lbl lbl-bold">部署環境</text>
+<line x1="90.0" y1="66" x2="90.0" y2="670" stroke="#ccc" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="220.0" y1="66" x2="220.0" y2="670" stroke="#ccc" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="350.0" y1="66" x2="350.0" y2="670" stroke="#ccc" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="480.0" y1="66" x2="480.0" y2="670" stroke="#ccc" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="610.0" y1="66" x2="610.0" y2="670" stroke="#ccc" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="740.0" y1="66" x2="740.0" y2="670" stroke="#ccc" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="870.0" y1="66" x2="870.0" y2="670" stroke="#ccc" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="1000.0" y1="66" x2="1000.0" y2="670" stroke="#ccc" stroke-width="1" stroke-dasharray="3,3"/>
+<path d="M 90.0 90 L 220.0 90" class="edge" marker-end="url(#arrow)"/>
+<rect x="132.0" y="73" width="46" height="15" fill="white" opacity="0.85"/>
+<text x="155.0" y="84" class="edge-label">開發者推送</text>
+<path d="M 220.0 130 L 350.0 130" class="edge" marker-end="url(#arrow)"/>
+<rect x="198.0" y="113" width="174" height="15" fill="white" opacity="0.85"/>
+<text x="285.0" y="124" class="edge-label">Webhook → 觸發 workflow</text>
+<path d="M 350.0 180 L 480.0 180" class="edge" marker-end="url(#arrow)"/>
+<rect x="376.0" y="163" width="78" height="15" fill="white" opacity="0.85"/>
+<text x="415.0" y="174" class="edge-label">執行 Linter</text>
+<path d="M 480.0 220 L 350.0 220" class="edge" marker-end="url(#arrow)"/>
+<rect x="396.0" y="203" width="38" height="15" fill="white" opacity="0.85"/>
+<text x="415.0" y="214" class="edge-label">返回結果</text>
+<path d="M 350.0 270 L 610.0 270" class="edge" marker-end="url(#arrow)"/>
+<rect x="453.0" y="253" width="54" height="15" fill="white" opacity="0.85"/>
+<text x="480.0" y="264" class="edge-label">執行單元測試</text>
+<path d="M 610.0 310 L 350.0 310" class="edge" marker-end="url(#arrow)"/>
+<rect x="461.0" y="293" width="38" height="15" fill="white" opacity="0.85"/>
+<text x="480.0" y="304" class="edge-label">返回結果</text>
+<path d="M 350.0 360 L 740.0 360" class="edge" marker-end="url(#arrow)"/>
+<rect x="514.0" y="343" width="62" height="15" fill="white" opacity="0.85"/>
+<text x="545.0" y="354" class="edge-label">編譯 / 建置</text>
+<path d="M 740.0 400 L 350.0 400" class="edge" marker-end="url(#arrow)"/>
+<rect x="526.0" y="383" width="38" height="15" fill="white" opacity="0.85"/>
+<text x="545.0" y="394" class="edge-label">返回結果</text>
+<path d="M 350.0 450 L 870.0 450" class="edge" marker-end="url(#arrow)"/>
+<rect x="559.0" y="433" width="102" height="15" fill="white" opacity="0.85"/>
+<text x="610.0" y="444" class="edge-label">觸發 Claude 審查</text>
+<path d="M 870.0 490 L 350.0 490" class="edge" marker-end="url(#arrow)"/>
+<rect x="583.0" y="473" width="54" height="15" fill="white" opacity="0.85"/>
+<text x="610.0" y="484" class="edge-label">新增審查註解</text>
+<path d="M 350.0 540 L 1000.0 540" class="edge" marker-end="url(#arrow)"/>
+<rect x="628.0" y="523" width="94" height="15" fill="white" opacity="0.85"/>
+<text x="675.0" y="534" class="edge-label">審查通過 → 自動部署</text>
+<path d="M 1000.0 600 L 90.0 600" class="edge" marker-end="url(#arrow)"/>
+<rect x="518.0" y="583" width="54" height="15" fill="white" opacity="0.85"/>
+<text x="545.0" y="594" class="edge-label">傳送完成通知</text>
+<rect x="30" y="650" width="120" height="36" class="box-start"/>
+<text x="90.0" y="672.0" class="lbl lbl-bold">開發者</text>
+<rect x="160" y="650" width="120" height="36" class="box-start"/>
+<text x="220.0" y="672.0" class="lbl lbl-bold">Git 倉庫</text>
+<rect x="290" y="650" width="120" height="36" class="box-start"/>
+<text x="350.0" y="672.0" class="lbl lbl-bold">GitHub Actions</text>
+<rect x="420" y="650" width="120" height="36" class="box-start"/>
+<text x="480.0" y="672.0" class="lbl lbl-bold">程式碼檢查</text>
+<rect x="550" y="650" width="120" height="36" class="box-start"/>
+<text x="610.0" y="672.0" class="lbl lbl-bold">自動化測試</text>
+<rect x="680" y="650" width="120" height="36" class="box-start"/>
+<text x="740.0" y="672.0" class="lbl lbl-bold">建置系統</text>
+<rect x="810" y="650" width="120" height="36" class="box-start"/>
+<text x="870.0" y="672.0" class="lbl lbl-bold">Claude 審查</text>
+<rect x="940" y="650" width="120" height="36" class="box-start"/>
+<text x="1000.0" y="672.0" class="lbl lbl-bold">部署環境</text>
+</svg>

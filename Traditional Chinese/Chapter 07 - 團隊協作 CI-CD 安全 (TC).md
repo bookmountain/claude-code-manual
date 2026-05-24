@@ -22,7 +22,7 @@
 
 ### 本章架構總覽
 
-![image-20260524122632653](../images/image-20260524122632653.png)
+![image-20260524122632653](../images/ch07-architecture.tc.svg)
 
 ------
 
@@ -267,7 +267,7 @@ Claude Code 支援三層 CLAUDE.md，優先順序從低到高：
 
 **CI/CD 流程全景圖**：
 
-![image-20260524122733811](../images/image-20260524122733811.png)
+![image-20260524122733811](../images/ch07-cicd-flow.tc.svg)
 
 ### 3.1 GitHub Actions 基礎配置
 

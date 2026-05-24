@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 540" width="1500" height="540">
+<title>第 8 章 – Git Hooks 工作流程</title>
+
+<style>
+  .box { fill: #efeaf8; stroke: #6b5fa5; stroke-width: 1.6; rx: 8; ry: 8; }
+  .box-key { fill: #ffe9c2; stroke: #b87f1c; stroke-width: 1.6; rx: 8; ry: 8; }
+  .box-alert { fill: #fad5d5; stroke: #b53939; stroke-width: 1.6; rx: 8; ry: 8; }
+  .box-good { fill: #d3eee0; stroke: #2f8260; stroke-width: 1.6; rx: 8; ry: 8; }
+  .box-start { fill: #d6e4fa; stroke: #2d5dad; stroke-width: 1.8; rx: 8; ry: 8; }
+  .lbl { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
+         font-size: 13px; fill: #1a1a1a; text-anchor: middle; }
+  .lbl-bold { font-weight: 600; }
+  .lbl-small { font-size: 11px; fill: #555; }
+  .edge { stroke: #444; stroke-width: 1.4; fill: none; }
+  .edge-label { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
+                font-size: 11px; fill: #444; text-anchor: middle; }
+</style>
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#444"/>
+  </marker>
+</defs>
+
+<rect width="1500" height="540" fill="white"/>
+<rect x="20" y="220" width="100" height="56" class="box"/>
+<text x="70.0" y="244.0" class="lbl">git add</text>
+<text x="70.0" y="260.0" class="lbl">（暫存檔案）</text>
+<rect x="150" y="220" width="120" height="56" class="box"/>
+<text x="210.0" y="252.0" class="lbl">pre-commit Hook</text>
+<path d="M 120 248 L 150 248" class="edge" marker-end="url(#arrow)"/>
+<rect x="124" y="231" width="22" height="15" fill="white" opacity="0.85"/>
+<text x="135" y="242" class="edge-label">觸發</text>
+<rect x="300" y="80" width="120" height="56" class="box-alert"/>
+<text x="360.0" y="104.0" class="lbl">Git Secrets</text>
+<text x="360.0" y="120.0" class="lbl">敏感資訊掃描</text>
+<rect x="300" y="220" width="120" height="56" class="box-key"/>
+<text x="360.0" y="244.0" class="lbl">程式碼風格</text>
+<text x="360.0" y="260.0" class="lbl">Linter</text>
+<rect x="300" y="360" width="120" height="56" class="box"/>
+<text x="360.0" y="392.0" class="lbl">單元測試</text>
+<path d="M 270 240 L 300 108" class="edge" marker-end="url(#arrow)"/>
+<rect x="274" y="159" width="22" height="15" fill="white" opacity="0.85"/>
+<text x="285" y="170" class="edge-label">檢查</text>
+<path d="M 270 248 L 300 248" class="edge" marker-end="url(#arrow)"/>
+<rect x="274" y="231" width="22" height="15" fill="white" opacity="0.85"/>
+<text x="285" y="242" class="edge-label">檢查</text>
+<path d="M 270 256 L 300 388" class="edge" marker-end="url(#arrow)"/>
+<rect x="274" y="309" width="22" height="15" fill="white" opacity="0.85"/>
+<text x="285" y="320" class="edge-label">檢查</text>
+<rect x="460" y="220" width="110" height="56" class="box-good"/>
+<text x="515.0" y="252.0" class="lbl">允許提交</text>
+<rect x="460" y="360" width="110" height="56" class="box-alert"/>
+<text x="515.0" y="384.0" class="lbl">阻止提交</text>
+<text x="515.0" y="400.0" class="lbl">並告警</text>
+<path d="M 420 108 L 460 240" class="edge" marker-end="url(#arrow)"/>
+<rect x="434" y="159" width="22" height="15" fill="white" opacity="0.85"/>
+<text x="445" y="170" class="edge-label">通過</text>
+<path d="M 420 248 L 460 248" class="edge" marker-end="url(#arrow)"/>
+<rect x="429" y="231" width="22" height="15" fill="white" opacity="0.85"/>
+<text x="440" y="242" class="edge-label">通過</text>
+<path d="M 420 388 L 460 388" class="edge" marker-end="url(#arrow)"/>
+<rect x="429" y="371" width="22" height="15" fill="white" opacity="0.85"/>
+<text x="440" y="382" class="edge-label">通過</text>
+<path d="M 420 108 L 510 360" class="edge" marker-end="url(#arrow)"/>
+<rect x="459" y="229" width="22" height="15" fill="white" opacity="0.85"/>
+<text x="470" y="240" class="edge-label">失敗</text>
+<path d="M 420 388 L 510 388" class="edge" marker-end="url(#arrow)"/>
+<rect x="454.0" y="373.0" width="22" height="15" fill="white" opacity="0.85"/>
+<text x="465.0" y="384.0" class="edge-label">失敗</text>
+<rect x="460" y="460" width="110" height="50" class="box"/>
+<text x="515.0" y="489.0" class="lbl">手動編輯</text>
+<path d="M 515 416 L 515 460" class="edge" marker-end="url(#arrow)"/>
+<path d="M 515 510 L 70 510" class="edge" marker-end="url(#arrow)"/>
+<rect x="271" y="493" width="38" height="15" fill="white" opacity="0.85"/>
+<text x="290" y="504" class="edge-label">重新提交</text>
+<path d="M 70 510 L 70 276" class="edge" marker-end="url(#arrow)"/>
+<rect x="610" y="220" width="100" height="56" class="box"/>
+<text x="660.0" y="252.0" class="lbl">git commit</text>
+<path d="M 570 248 L 610 248" class="edge" marker-end="url(#arrow)"/>
+<rect x="740" y="220" width="120" height="56" class="box"/>
+<text x="800.0" y="252.0" class="lbl">commit-msg Hook</text>
+<path d="M 710 248 L 740 248" class="edge" marker-end="url(#arrow)"/>
+<rect x="714" y="231" width="22" height="15" fill="white" opacity="0.85"/>
+<text x="725" y="242" class="edge-label">觸發</text>
+<rect x="890" y="220" width="120" height="56" class="box"/>
+<text x="950.0" y="244.0" class="lbl">提交訊息格式</text>
+<text x="950.0" y="260.0" class="lbl">檢查</text>
+<path d="M 860 248 L 890 248" class="edge" marker-end="url(#arrow)"/>
+<rect x="864" y="231" width="22" height="15" fill="white" opacity="0.85"/>
+<text x="875" y="242" class="edge-label">驗證</text>
+<rect x="1040" y="220" width="130" height="56" class="box-key"/>
+<text x="1105.0" y="244.0" class="lbl">觸發 Claude Code</text>
+<text x="1105.0" y="260.0" class="lbl">自動審查</text>
+<path d="M 1010 248 L 1040 248" class="edge" marker-end="url(#arrow)"/>
+<rect x="1006" y="231" width="38" height="15" fill="white" opacity="0.85"/>
+<text x="1025" y="242" class="edge-label">符合規範</text>
+<rect x="1200" y="220" width="130" height="56" class="box"/>
+<text x="1265.0" y="244.0" class="lbl">新增評論</text>
+<text x="1265.0" y="260.0" class="lbl">到 PR</text>
+<path d="M 1170 248 L 1200 248" class="edge" marker-end="url(#arrow)"/>
+<rect x="1150" y="231" width="70" height="15" fill="white" opacity="0.85"/>
+<text x="1185" y="242" class="edge-label">新增評論到 PR</text>
+<rect x="1360" y="220" width="120" height="56" class="box-good"/>
+<text x="1420.0" y="252.0" class="lbl">提交成功</text>
+<path d="M 1330 248 L 1360 248" class="edge" marker-end="url(#arrow)"/>
+</svg>

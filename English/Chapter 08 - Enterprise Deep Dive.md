@@ -4,7 +4,7 @@
 
 ## Chapter Security Architecture
 
-![Chapter security architecture](../images/image-20260524122818054.png)
+![Chapter security architecture](../images/ch08-security-architecture.en.svg)
 
 ---
 
@@ -80,7 +80,7 @@ Provide `install.ps1` for Windows users with the equivalent logic in PowerShell.
 
 ## 3. Git Hooks + Claude Integration
 
-![Git Hooks workflow](../images/image-20260524122851577.png)
+![Git Hooks workflow](../images/ch08-git-hooks-workflow.en.svg)
 
 ### 3.1 Why
 
@@ -176,7 +176,7 @@ Company level sets the floor (security, style minimums); team level adds stack-s
 
 ## 7. API Key Security (the most important section)
 
-![API key lifecycle](../images/image-20260524123002753.png)
+![API key lifecycle](../images/ch08-apikey-lifecycle.en.svg)
 
 ### 7.1 Disaster Scenarios
 

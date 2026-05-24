@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1450" width="900" height="1450">
+<title>Chapter 8 – API Key Lifecycle</title>
+
+<style>
+  .box { fill: #efeaf8; stroke: #6b5fa5; stroke-width: 1.6; rx: 8; ry: 8; }
+  .box-key { fill: #ffe9c2; stroke: #b87f1c; stroke-width: 1.6; rx: 8; ry: 8; }
+  .box-alert { fill: #fad5d5; stroke: #b53939; stroke-width: 1.6; rx: 8; ry: 8; }
+  .box-good { fill: #d3eee0; stroke: #2f8260; stroke-width: 1.6; rx: 8; ry: 8; }
+  .box-start { fill: #d6e4fa; stroke: #2d5dad; stroke-width: 1.8; rx: 8; ry: 8; }
+  .lbl { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
+         font-size: 13px; fill: #1a1a1a; text-anchor: middle; }
+  .lbl-bold { font-weight: 600; }
+  .lbl-small { font-size: 11px; fill: #555; }
+  .edge { stroke: #444; stroke-width: 1.4; fill: none; }
+  .edge-label { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
+                font-size: 11px; fill: #444; text-anchor: middle; }
+</style>
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#444"/>
+  </marker>
+</defs>
+
+<rect width="900" height="1450" fill="white"/>
+<rect x="370" y="20" width="160" height="44" class="box-start"/>
+<text x="450.0" y="46.0" class="lbl">Need new API Key</text>
+<rect x="370" y="120" width="160" height="44" class="box"/>
+<text x="450.0" y="146.0" class="lbl">Approval flow</text>
+<path d="M 450 64 L 450 120" class="edge" marker-end="url(#arrow)"/>
+<rect x="467" y="84" width="46" height="15" fill="white" opacity="0.85"/>
+<text x="490" y="95" class="edge-label">apply</text>
+<rect x="330" y="220" width="240" height="56" class="box-key"/>
+<text x="450.0" y="244.0" class="lbl">Generate API Key</text>
+<text x="450.0" y="260.0" class="lbl">+ add metadata</text>
+<path d="M 450 164 L 450 220" class="edge" marker-end="url(#arrow)"/>
+<rect x="463" y="179" width="54" height="15" fill="white" opacity="0.85"/>
+<text x="490" y="190" class="edge-label">create</text>
+<rect x="80" y="340" width="200" height="44" class="box"/>
+<text x="180.0" y="366.0" class="lbl">DEV environment</text>
+<rect x="350" y="340" width="200" height="44" class="box-alert"/>
+<text x="450.0" y="366.0" class="lbl">PROD environment</text>
+<rect x="620" y="340" width="200" height="44" class="box-good"/>
+<text x="720.0" y="366.0" class="lbl">AUDIT environment</text>
+<path d="M 450 276 L 180 340" class="edge" marker-end="url(#arrow)"/>
+<rect x="237" y="299" width="86" height="15" fill="white" opacity="0.85"/>
+<text x="280" y="310" class="edge-label">assign env</text>
+<path d="M 450 276 L 450 340" class="edge" marker-end="url(#arrow)"/>
+<path d="M 450 276 L 720 340" class="edge" marker-end="url(#arrow)"/>
+<rect x="577" y="299" width="86" height="15" fill="white" opacity="0.85"/>
+<text x="620" y="310" class="edge-label">assign env</text>
+<rect x="80" y="440" width="200" height="56" class="box"/>
+<text x="180.0" y="472.0" class="lbl">Read-only</text>
+<rect x="350" y="440" width="200" height="56" class="box-alert"/>
+<text x="450.0" y="464.0" class="lbl">Read-write</text>
+<text x="450.0" y="480.0" class="lbl">(restricted)</text>
+<rect x="620" y="440" width="200" height="56" class="box-good"/>
+<text x="720.0" y="464.0" class="lbl">Audit-only</text>
+<text x="720.0" y="480.0" class="lbl">(read-only)</text>
+<path d="M 180 384 L 180 440" class="edge" marker-end="url(#arrow)"/>
+<path d="M 450 384 L 450 440" class="edge" marker-end="url(#arrow)"/>
+<path d="M 720 384 L 720 440" class="edge" marker-end="url(#arrow)"/>
+<rect x="80" y="550" width="200" height="56" class="box"/>
+<text x="180.0" y="582.0" class="lbl">90 days</text>
+<rect x="350" y="550" width="200" height="56" class="box-alert"/>
+<text x="450.0" y="582.0" class="lbl">30 days</text>
+<rect x="620" y="550" width="200" height="56" class="box-good"/>
+<text x="720.0" y="574.0" class="lbl">Permanent</text>
+<text x="720.0" y="590.0" class="lbl">+ access log</text>
+<path d="M 180 506 L 180 550" class="edge" marker-end="url(#arrow)"/>
+<path d="M 450 506 L 450 550" class="edge" marker-end="url(#arrow)"/>
+<path d="M 720 506 L 720 550" class="edge" marker-end="url(#arrow)"/>
+<rect x="50" y="660" width="260" height="44" class="box"/>
+<text x="180.0" y="686.0" class="lbl">Auto reminder</text>
+<rect x="620" y="660" width="260" height="44" class="box"/>
+<text x="750.0" y="686.0" class="lbl">Periodic review</text>
+<path d="M 180 604 L 180 660" class="edge" marker-end="url(#arrow)"/>
+<path d="M 450 604 L 320 660" class="edge" marker-end="url(#arrow)"/>
+<path d="M 720 604 L 720 660" class="edge" marker-end="url(#arrow)"/>
+<rect x="280" y="760" width="340" height="44" class="box"/>
+<text x="450.0" y="786.0" class="lbl">Notify 30 days before expiry</text>
+<path d="M 180 716 L 320 760" class="edge" marker-end="url(#arrow)"/>
+<path d="M 620 716 L 540 760" class="edge" marker-end="url(#arrow)"/>
+<rect x="330" y="850" width="240" height="44" class="box"/>
+<text x="450.0" y="876.0" class="lbl">Rotate</text>
+<path d="M 450 804 L 450 850" class="edge" marker-end="url(#arrow)"/>
+<rect x="330" y="940" width="240" height="44" class="box"/>
+<text x="450.0" y="966.0" class="lbl">Generate new key</text>
+<path d="M 450 894 L 450 940" class="edge" marker-end="url(#arrow)"/>
+<rect x="230" y="1030" width="440" height="44" class="box"/>
+<text x="450.0" y="1056.0" class="lbl">Transition period (old + new in parallel)</text>
+<path d="M 450 984 L 450 1030" class="edge" marker-end="url(#arrow)"/>
+<rect x="280" y="1120" width="340" height="44" class="box"/>
+<text x="450.0" y="1146.0" class="lbl">Verify ready</text>
+<path d="M 450 1074 L 450 1120" class="edge" marker-end="url(#arrow)"/>
+<rect x="330" y="1210" width="240" height="44" class="box-alert"/>
+<text x="450.0" y="1236.0" class="lbl">Revoke old key</text>
+<path d="M 450 1164 L 450 1210" class="edge" marker-end="url(#arrow)"/>
+<rect x="370" y="1300" width="160" height="44" class="box"/>
+<text x="450.0" y="1326.0" class="lbl">Audit Log</text>
+<path d="M 450 1254 L 450 1300" class="edge" marker-end="url(#arrow)"/>
+<rect x="465" y="1274" width="30" height="15" fill="white" opacity="0.85"/>
+<text x="480" y="1285" class="edge-label">Log</text>
+<rect x="370" y="1390" width="160" height="44" class="box"/>
+<text x="450.0" y="1416.0" class="lbl">Monthly audit</text>
+<path d="M 450 1344 L 450 1390" class="edge" marker-end="url(#arrow)"/>
+<rect x="330" y="1480" width="240" height="44" class="box-good"/>
+<text x="450.0" y="1506.0" class="lbl">Compliance Report</text>
+<path d="M 450 1434 L 450 1480" class="edge" marker-end="url(#arrow)"/>
+</svg>

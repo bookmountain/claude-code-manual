@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" width="900" height="900">
+<title>第 8 章 – 安全架構</title>
+
+<style>
+  .box { fill: #efeaf8; stroke: #6b5fa5; stroke-width: 1.6; rx: 8; ry: 8; }
+  .box-key { fill: #ffe9c2; stroke: #b87f1c; stroke-width: 1.6; rx: 8; ry: 8; }
+  .box-alert { fill: #fad5d5; stroke: #b53939; stroke-width: 1.6; rx: 8; ry: 8; }
+  .box-good { fill: #d3eee0; stroke: #2f8260; stroke-width: 1.6; rx: 8; ry: 8; }
+  .box-start { fill: #d6e4fa; stroke: #2d5dad; stroke-width: 1.8; rx: 8; ry: 8; }
+  .lbl { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
+         font-size: 13px; fill: #1a1a1a; text-anchor: middle; }
+  .lbl-bold { font-weight: 600; }
+  .lbl-small { font-size: 11px; fill: #555; }
+  .edge { stroke: #444; stroke-width: 1.4; fill: none; }
+  .edge-label { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
+                font-size: 11px; fill: #444; text-anchor: middle; }
+</style>
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#444"/>
+  </marker>
+</defs>
+
+<rect width="900" height="900" fill="white"/>
+<rect x="370" y="20" width="160" height="44" class="box-start"/>
+<text x="450.0" y="46.0" class="lbl">團隊成員</text>
+<rect x="60" y="130" width="260" height="44" class="box"/>
+<text x="190.0" y="156.0" class="lbl">settings.json（本地，不入庫）</text>
+<rect x="560" y="130" width="280" height="44" class="box-alert"/>
+<text x="700.0" y="156.0" class="lbl">Secrets Manager（集中管理）</text>
+<path d="M 420 64 L 190 130" class="edge" marker-end="url(#arrow)"/>
+<rect x="243" y="87" width="54" height="15" fill="white" opacity="0.85"/>
+<text x="270" y="98" class="edge-label">使用本地配置</text>
+<path d="M 480 64 L 700 130" class="edge" marker-end="url(#arrow)"/>
+<rect x="593" y="87" width="54" height="15" fill="white" opacity="0.85"/>
+<text x="620" y="98" class="edge-label">存取共享金鑰</text>
+<rect x="60" y="230" width="260" height="44" class="box"/>
+<text x="190.0" y="256.0" class="lbl">Git Hooks（自動檢查）</text>
+<path d="M 190 174 L 190 230" class="edge" marker-end="url(#arrow)"/>
+<rect x="60" y="330" width="260" height="44" class="box-key"/>
+<text x="190.0" y="356.0" class="lbl">Git Secrets 掃描</text>
+<path d="M 190 274 L 190 330" class="edge" marker-end="url(#arrow)"/>
+<rect x="60" y="430" width="260" height="44" class="box"/>
+<text x="190.0" y="456.0" class="lbl">安全告警</text>
+<path d="M 190 374 L 190 430" class="edge" marker-end="url(#arrow)"/>
+<rect x="91" y="394" width="38" height="15" fill="white" opacity="0.85"/>
+<text x="110" y="405" class="edge-label">攔截洩漏</text>
+<rect x="560" y="230" width="280" height="44" class="box"/>
+<text x="700.0" y="256.0" class="lbl">API Key 分級策略</text>
+<path d="M 700 174 L 700 230" class="edge" marker-end="url(#arrow)"/>
+<rect x="490" y="330" width="130" height="44" class="box"/>
+<text x="555.0" y="356.0" class="lbl">DEV 金鑰（短效）</text>
+<rect x="635" y="330" width="130" height="44" class="box-alert"/>
+<text x="700.0" y="356.0" class="lbl">PROD 金鑰（嚴格權限）</text>
+<rect x="780" y="330" width="130" height="44" class="box-good"/>
+<text x="845.0" y="356.0" class="lbl">AUDIT 金鑰（唯讀）</text>
+<path d="M 620 274 L 555 330" class="edge" marker-end="url(#arrow)"/>
+<path d="M 700 274 L 700 330" class="edge" marker-end="url(#arrow)"/>
+<path d="M 780 274 L 845 330" class="edge" marker-end="url(#arrow)"/>
+<rect x="560" y="430" width="280" height="44" class="box"/>
+<text x="700.0" y="456.0" class="lbl">自動輪換</text>
+<path d="M 555 374 L 660 430" class="edge" marker-end="url(#arrow)"/>
+<path d="M 700 374 L 700 430" class="edge" marker-end="url(#arrow)"/>
+<path d="M 845 374 L 740 430" class="edge" marker-end="url(#arrow)"/>
+<rect x="330" y="560" width="240" height="44" class="box"/>
+<text x="450.0" y="586.0" class="lbl">稽核日誌</text>
+<path d="M 190 474 L 380 560" class="edge" marker-end="url(#arrow)"/>
+<path d="M 700 474 L 520 560" class="edge" marker-end="url(#arrow)"/>
+<rect x="280" y="670" width="340" height="44" class="box"/>
+<text x="450.0" y="696.0" class="lbl">合規檢查（GDPR / SOC 2）</text>
+<path d="M 450 604 L 450 670" class="edge" marker-end="url(#arrow)"/>
+<rect x="330" y="790" width="240" height="50" class="box-good"/>
+<text x="450.0" y="819.0" class="lbl">合規稽核儀表板</text>
+<path d="M 450 714 L 450 790" class="edge" marker-end="url(#arrow)"/>
+</svg>
